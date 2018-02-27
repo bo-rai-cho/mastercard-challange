@@ -48,36 +48,6 @@ public class WordsCounterTest {
         Assert.assertEquals("test", result.getLongestWords().iterator().next()); // Check this words as expected without dot
     }
 
-    @Test (expected = NotValidSentenceException.class)
-    public void testNotValidSentence() throws NotValidSentenceException {
-
-        Sentence sentence = new Sentence("test");
-        WordsCounterRequest request = new WordsCounterRequest(sentence);
-        WordsCounterExecutor executor = new WordsCounterExecutor();
-
-        executor.execute(request);
-    }
-
-    @Test (expected = IllegalArgumentException.class)
-    public void testEmptySentence() throws NotValidSentenceException {
-
-        Sentence sentence = new Sentence("");
-        WordsCounterRequest request = new WordsCounterRequest(sentence);
-        WordsCounterExecutor executor = new WordsCounterExecutor();
-
-        executor.execute(request);
-    }
-
-    @Test (expected = IllegalArgumentException.class)
-    public void testNullSentence() throws NotValidSentenceException {
-
-        Sentence sentence = new Sentence(null);
-        WordsCounterRequest request = new WordsCounterRequest(sentence);
-        WordsCounterExecutor executor = new WordsCounterExecutor();
-
-        executor.execute(request);
-    }
-
     @Test
     public void testRepeatingWord() throws NotValidSentenceException {
 
