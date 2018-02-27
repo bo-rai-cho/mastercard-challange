@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
+ * Immutable request for executor. Includes given sentence.
+ *
  * @author Nikolay Ponomarev
  */
 @AllArgsConstructor

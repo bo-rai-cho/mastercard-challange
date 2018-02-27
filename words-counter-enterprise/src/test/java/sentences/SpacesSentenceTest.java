@@ -1,5 +1,6 @@
 package sentences;
 
+import com.mastercard.words.exceptions.NotValidSentenceException;
 import com.mastercard.words.model.Sentence;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,17 +24,17 @@ public class SpacesSentenceTest {
     @Parameterized.Parameters
     public static Object[] parameters() {
         return new Object[][] {
-                { 2, "Try this " },
-                { 2, " Try this" },
-                { 2, " Try this " },
-                { 3, "Try maybe this   " },
-                { 3, "       What       about        this?          " }
+                { 2, "Try   this." },
+                { 3, "Try th           is?" },
+                { 2, "Try this!" },
+                { 3, "Try        maybe this." },
+                { 3, "What       about        this?" }
         };
     }
 
     @Test
-    public void testSpaces() {
+    public void testSpaces() throws NotValidSentenceException {
         Sentence sentence = new Sentence(this.sentence);
-        Assert.assertEquals(expectedWordsCount, sentence.toLowerCaseWords().length);
+        Assert.assertEquals(expectedWordsCount, Sentence.toLowerCaseWords(sentence).length);
     }
 }

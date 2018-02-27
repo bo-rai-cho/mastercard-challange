@@ -6,6 +6,9 @@ import lombok.Getter;
 import java.util.Set;
 
 /**
+ * Represents the immutable result we need.
+ * As per requirement the result contains words count and longest words
+ *
  * @author Nikolay Ponomarev
  */
 @AllArgsConstructor

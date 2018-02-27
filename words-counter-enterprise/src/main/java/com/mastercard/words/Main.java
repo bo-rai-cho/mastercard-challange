@@ -6,7 +6,6 @@ import com.mastercard.words.executors.WordsCounterExecutor;
 import com.mastercard.words.model.Sentence;
 import com.mastercard.words.request.WordsCounterRequest;
 import com.mastercard.words.result.WordsCounterResult;
-import com.sun.org.apache.bcel.internal.classfile.SourceFile;
 
 /**
  * Main class
