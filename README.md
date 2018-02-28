@@ -18,8 +18,8 @@ One of the hardest problem here is how to validate that given sentence is a "nor
 For example for humans this is not normal "!@#SDV sdfjkh877 ,,.nasd" but for machines is okay - just strings.
 
 Following the definition of "sentence" from the Internet we can assume that:
-1. Sentence is a something which starts with a capital letter
-2. Sentence is a something which ends with character '.' or '!' or '?'
+* Sentence is a something which starts with a capital letter
+* Sentence is a something which ends with character '.' or '!' or '?'
 
 In this solution meaning "sentence" is the same but with 2 additional restriction:
 * starts with an english capital letter
@@ -76,6 +76,7 @@ System.out.println("Longest word(s): " + longestWords);
 ## Running the tests
 
 To run all test cases you need to install maven and run command
+
 mvn clean test
 
 ### Test groups
