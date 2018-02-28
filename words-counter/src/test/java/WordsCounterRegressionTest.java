@@ -21,8 +21,8 @@ public class WordsCounterRegressionTest {
         Set<String> expectedSet = new HashSet<>();
         expectedSet.add("wonderland");
 
-        WordsCounter.Result result = wordsCounter.countWords(sentence);
-        Assert.assertEquals(20, result.getWordsCount());
+        WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
+        Assert.assertEquals(10, result.getLongestLength());
         Assert.assertEquals(expectedSet, result.getLongestWordsSet());
     }
 
@@ -35,8 +35,8 @@ public class WordsCounterRegressionTest {
         expectedSet.add("this");
         expectedSet.add("pill");
 
-        WordsCounter.Result result = wordsCounter.countWords(sentence);
-        Assert.assertEquals(8, result.getWordsCount());
+        WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
+        Assert.assertEquals(4, result.getLongestLength());
         Assert.assertEquals(expectedSet, result.getLongestWordsSet());
     }
 
@@ -49,34 +49,34 @@ public class WordsCounterRegressionTest {
         expectedSet.add("this");
         expectedSet.add("pill");
 
-        WordsCounter.Result result = wordsCounter.countWords(sentence);
-        Assert.assertEquals(8, result.getWordsCount());
+        WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
+        Assert.assertEquals(4, result.getLongestLength());
         Assert.assertEquals(expectedSet, result.getLongestWordsSet());
     }
 
     @Test
     public void testFirstWordRepeating() {
 
-        String sentence = "Pill or not to pill.";
+        String sentence = "Pills or not to pills.";
         Set<String> expectedSet = new HashSet<>();
-        expectedSet.add("pill"); // Here is just one word - pill.
+        expectedSet.add("pills"); // Here is just one word - pill.
 
-        WordsCounter.Result result = wordsCounter.countWords(sentence);
-        Assert.assertEquals(5, result.getWordsCount());
+        WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
+        Assert.assertEquals(5, result.getLongestLength());
         Assert.assertEquals(expectedSet, result.getLongestWordsSet());
     }
 
     @Test
     public void testSpaces() {
 
-        String sentence = "Take       this         pill.";
+        String sentence = "              Take       this         pill.         ";
         Set<String> expectedSet = new HashSet<>();
         expectedSet.add("take");
         expectedSet.add("this");
         expectedSet.add("pill");
 
-        WordsCounter.Result result = wordsCounter.countWords(sentence);
-        Assert.assertEquals(3, result.getWordsCount());
+        WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
+        Assert.assertEquals(4, result.getLongestLength());
         Assert.assertEquals(expectedSet, result.getLongestWordsSet());
     }
 
@@ -90,8 +90,8 @@ public class WordsCounterRegressionTest {
         expectedSet.add("pill");
         expectedSet.add("want");
 
-        WordsCounter.Result result = wordsCounter.countWords(sentence);
-        Assert.assertEquals(7, result.getWordsCount());
+        WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
+        Assert.assertEquals(4, result.getLongestLength());
         Assert.assertEquals(expectedSet, result.getLongestWordsSet());
     }
 
@@ -105,8 +105,8 @@ public class WordsCounterRegressionTest {
         expectedSet.add("pill");
         expectedSet.add("want");
 
-        WordsCounter.Result result = wordsCounter.countWords(sentence);
-        Assert.assertEquals(6, result.getWordsCount());
+        WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
+        Assert.assertEquals(4, result.getLongestLength());
         Assert.assertEquals(expectedSet, result.getLongestWordsSet());
     }
 }

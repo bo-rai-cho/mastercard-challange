@@ -30,7 +30,7 @@ public class WordsCounterShortPerformanceTest {
 
         // DO NOT replace foreach or lambda - we are trying to check performance here of our method
         for (int i = 0; i < sentences.size(); i++) {
-            wordsCounter.countWords(sentences.get(i));
+            wordsCounter.getLongestWords(sentences.get(i));
         }
 
         long end = System.currentTimeMillis();
