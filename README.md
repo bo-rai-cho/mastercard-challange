@@ -76,9 +76,9 @@ mvn clean test
 
 ### Test groups
 
-Exception tests
-Regression tests
-Performance test - current SLA is 1000 request per 200 milliseconds
+* Exception tests
+* Regression tests
+* Performance test - current SLA is 1000 request per 200 milliseconds
 
 ## Future approach
 
