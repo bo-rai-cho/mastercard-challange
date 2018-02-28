@@ -34,7 +34,8 @@ public class WordsCounterExceptionTest {
                  "Try this???" , // Plural '?' characters
                  "Ho891723, 7kjh*&@!%#b" , // What is that?
                  "." , // Just comma
-                 "1This is test." // Number in the beginning
+                 "1This is test.", // Number in the beginning
+                "This is test1." // Number in the end
         };
     }
 
