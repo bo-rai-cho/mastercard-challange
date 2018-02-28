@@ -22,7 +22,7 @@ public class WordsCounterExceptionTest {
 
         StringBuilder longSentence = new StringBuilder();
         for (int i = 0 ; i < LENGTH_RESTRICTION; i++) {
-            longSentence.append('a');
+            longSentence.append('a'); // checking spaces
         }
 
         return new Object[] {

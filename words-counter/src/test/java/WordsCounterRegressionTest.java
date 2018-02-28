@@ -83,7 +83,7 @@ public class WordsCounterRegressionTest {
     @Test
     public void testQuestionSentence() {
 
-        String sentence = "Do you want to take this pill?";
+        String sentence = "do you want to take this pill?";
         Set<String> expectedSet = new HashSet<>();
         expectedSet.add("take");
         expectedSet.add("this");
@@ -107,6 +107,39 @@ public class WordsCounterRegressionTest {
 
         WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
         Assert.assertEquals(4, result.getLongestLength());
+        Assert.assertEquals(expectedSet, result.getLongestWordsSet());
+    }
+
+    @Test
+    public void testCapitalsAndLowerLetters() {
+
+        String sentence = "You wanT wAnt to take tAke this thiS PILL pill!";
+        Set<String> expectedSet = new HashSet<>();
+        expectedSet.add("take");
+        expectedSet.add("this");
+        expectedSet.add("pill");
+        expectedSet.add("want");
+
+        WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
+        Assert.assertEquals(4, result.getLongestLength());
+        Assert.assertEquals(expectedSet, result.getLongestWordsSet());
+    }
+
+    @Test
+    public void testSentenceLengthWithSpaces() {
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < 6000; i++) {
+            sb.append(" "); // append 6000 spaces
+        }
+
+        String sentence = sb.append("This is the sentence.").toString();
+        Set<String> expectedSet = new HashSet<>();
+        expectedSet.add("sentence");
+
+        WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
+        Assert.assertEquals(8, result.getLongestLength());
         Assert.assertEquals(expectedSet, result.getLongestWordsSet());
     }
 }
