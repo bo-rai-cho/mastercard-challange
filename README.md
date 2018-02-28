@@ -26,7 +26,7 @@ In this solution meaning "sentence" is the same but with 3 additional restrictio
 * ends with an english letter + character '.' or '!' or '?'
 * no longer than 3000 characters after normalization (avoid spaces). For example this " This    is a    sentence " is 18 length long sentence
 
-Examples:
+#### Examples
 
 Good sentences:
 * “The cow jumped over the moon.”
@@ -34,7 +34,7 @@ Good sentences:
 * “The cow jumped over the moon!”
 * “seriously?”
 
-Bad sentence:
+Bad sentences:
 * “The cow jumped over the moon%” // ends with '%' symbol
 * “The cow jumped over the moon” // does not have '.' or '?' or '!' character in the end
 * "a." // does not start and end with letters
