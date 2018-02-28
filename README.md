@@ -28,15 +28,15 @@ In this solution meaning "sentence" is the same but with 2 additional restrictio
 Examples:
 
 Good sentences:
-“The cow jumped over the moon.”
-“Who just jumped over the moon?”
-“The cow jumped over the moon!”
-“seriously?”
+* “The cow jumped over the moon.”
+* “Who just jumped over the moon?”
+* “The cow jumped over the moon!”
+* “seriously?”
 
 Bad sentence:
-“The cow jumped over the moon%” // ends with '%' symbol
-“The cow jumped over the moon” // does not have '.' or '?' or '!' character in the end
-"a." // does not start and end with letters
+* “The cow jumped over the moon%” // ends with '%' symbol
+* “The cow jumped over the moon” // does not have '.' or '?' or '!' character in the end
+* "a." // does not start and end with letters
 
 ### Solution
 
@@ -56,18 +56,22 @@ For example here "This is this." actually just one longest word - "this".
 ### Usage
 
 This is an example of usage:
-// .....
+
 String sentence = “The cow jumped over the moon.”;
+
 WordsCounter wordsCounter = new WordsCounter();
+
 WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
 
 int longestLength = result.getLongestLength();
+
 Set<String> longestWords = result.getLongestWordsSet();
 
 System.out.println("Sentence: " + sentence);
+
 System.out.println("Longest word(s) length: " + longestLength);
+
 System.out.println("Longest word(s): " + longestWords);
-// .....
 
 ## Running the tests
 
