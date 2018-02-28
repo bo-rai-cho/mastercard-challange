@@ -21,9 +21,10 @@ Following the definition of "sentence" from the Internet we can assume that:
 * Sentence is a something which starts with a capital letter
 * Sentence is a something which ends with character '.' or '!' or '?'
 
-In this solution meaning "sentence" is the same but with 2 additional restriction:
-* starts with an english capital letter
+In this solution meaning "sentence" is the same but with 3 additional restriction:
+* starts with an english letter
 * ends with an english letter + character '.' or '!' or '?'
+* no longer than 3000 characters after normalization (avoid spaces). For example this " This    is a    sentence " is 18 length long sentence
 
 Examples:
 
