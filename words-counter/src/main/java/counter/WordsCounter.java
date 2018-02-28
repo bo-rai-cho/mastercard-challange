@@ -25,28 +25,35 @@ public final class WordsCounter {
      *
      * 5. Remove smallest words from the set
      *
-     * 6. Return result
+     * 6. Return result (result included longest word(s) and length)
      *
      * @param sentence String sentence
      * @return Result
      * @see Result
      */
-    public Result countWords(String sentence) {
+    public Result getLongestWords(String sentence) {
 
-        if (!isValid(sentence)) {
+        if (sentence == null || sentence.isEmpty()) {
+            throw new IllegalArgumentException("Given sentence [" + sentence + "] is not valid. It is null or empty.");
+        }
+
+        // Normalize this sentence, remove spaces and make lower cases
+        String normalizedSentence = sentence.trim().toLowerCase();
+
+        if (!isValid(normalizedSentence)) {
             throw new IllegalArgumentException("Given sentence [" + sentence + "] is not valid");
         }
 
-        // trim, to lower cases and remove last character.
-        // We already know that this sentence is 'normal' so we can safely delete last char '.' or '?' or '!'
-        String normalizedSentence = normalize(sentence).substring(0, sentence.length() - 1);
+        // remove last character.
+        // We already know that this sentence is 'normal' and passed validation so we can safely delete last char '.' or '?' or '!'
+        normalizedSentence = normalizedSentence.substring(0, normalizedSentence.length() - 1);
 
         String[] words = toWords(normalizedSentence);
 
         Set<String> wordsSet = new HashSet<>(); // define new set for words in a given sentence
-        int maxLengthWord = 0; // so far max length of a word is zero
+        int maxLengthWord = 0; // so far max length is zero
 
-        for (String word : words) {
+        for (String word : words) { // finding maximum length of a word(s)
 
             if (word.length() >= maxLengthWord) {
                 maxLengthWord = word.length();
@@ -57,7 +64,7 @@ public final class WordsCounter {
 
         removeShortestWords(wordsSet, maxLengthWord); // remove shortest words from set
 
-        return new Result(words.length, wordsSet); // and return result
+        return new Result(maxLengthWord, wordsSet); // and return result
     }
 
     /**
@@ -89,35 +96,25 @@ public final class WordsCounter {
      * @return Validation result
      */
     private boolean isValid(String sentence) {
-        return !(sentence == null || sentence.isEmpty()) && sentence.matches("^[A-Z].*[a-zA-Z][.!?]$");
+        return sentence.matches("^[a-zA-Z].*[a-zA-Z][.!?]$")
+               && sentence.length() <= 3000;
     }
 
     /**
-     * Normalize a string sentence.
-     * Trim and to lower cases.
-     *
-     * @param sentence String sentence
-     * @return Normalized sentence
-     */
-    private String normalize(String sentence) {
-        return sentence.trim().toLowerCase();
-    }
-
-    /**
-     * Class includes the result - words count and set of longest words
+     * Class includes the result - longest word(s) length and set of longest words
      */
     public final class Result {
 
-        private int wordsCount = 0; // By default it's zero
+        private int longestLength = 0; // By default it's zero
         private Set<String> longestWordsSet;
 
-        Result(int wordsCount, Set<String> longestWordsSet) {
-            this.wordsCount = wordsCount;
+        Result(int longestLength, Set<String> longestWordsSet) {
+            this.longestLength = longestLength;
             this.longestWordsSet = longestWordsSet;
         }
 
-        public int getWordsCount() {
-            return wordsCount;
+        public int getLongestLength() {
+            return longestLength;
         }
 
         public Set<String> getLongestWordsSet() {
