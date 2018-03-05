@@ -22,9 +22,9 @@ Following the definition of "sentence" from the Internet we can assume that:
 * Sentence is a something which ends with character '.' or '!' or '?'
 
 In this solution meaning "sentence" is the same but with 3 additional restriction:
-* starts with an english letter
-* ends with an english letter + character '.' or '!' or '?'
-* no longer than 3000 characters after normalization (avoid spaces). For example this " This    is a    sentence " is 18 length long sentence
+* Starts with an english letter
+* Ends with an english letter + character '.' or '!' or '?'
+* No longer than 3000 characters after normalization (avoid spaces). For example this " This    is a    sentence " is 18 length long sentence
 
 #### Examples
 
@@ -58,22 +58,18 @@ For example here "This is this." actually just one longest word - "this".
 
 This is an example of usage:
 
+```java
 String sentence = “The cow jumped over the moon.”;
-
 WordsCounter wordsCounter = new WordsCounter();
-
 WordsCounter.Result result = wordsCounter.getLongestWords(sentence);
 
 int longestLength = result.getLongestLength();
-
 Set<String> longestWords = result.getLongestWordsSet();
 
 System.out.println("Sentence: " + sentence);
-
 System.out.println("Longest word(s) length: " + longestLength);
-
 System.out.println("Longest word(s): " + longestWords);
-
+```
 ## Running the tests
 
 To run all test cases you need to install maven and run command

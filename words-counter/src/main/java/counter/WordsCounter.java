@@ -1,5 +1,6 @@
 package counter;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -89,8 +90,7 @@ public final class WordsCounter {
 
     /**
      * Check if the sentence is valid.
-     * Validation criteria: not null, not empty,
-     * starts with a capital english letter and ends with an english letter and char '.' or '!' or '?'
+     * Starts with a capital english letter and ends with an english letter and char '.' or '!' or '?'
      *
      * @param sentence String sentence
      * @return Validation result
@@ -105,8 +105,8 @@ public final class WordsCounter {
      */
     public final class Result {
 
-        private int longestLength = 0; // By default it's zero
-        private Set<String> longestWordsSet;
+        private final int longestLength;
+        private final Set<String> longestWordsSet;
 
         Result(int longestLength, Set<String> longestWordsSet) {
             this.longestLength = longestLength;
